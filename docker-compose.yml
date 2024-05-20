@@ -1,0 +1,45 @@
+services:
+  # MongoDB
+  mongod_db:
+    container_name: db_container
+    image: mongo:latest
+    restart: always
+
+  # Redis
+  redis_db:
+    container_name: redis_container
+    image: redis:latest
+    restart: always
+    
+  # NodeJS API
+  api:
+    container_name: api_container
+    build: .
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mongod_db
+      - redis_db
+    environment:
+      # Application settings
+      - PORT=8080
+      - NODE_ENV=development
+      - CORS_ORIGIN=*
+
+      # Database credentials
+      - DB_URI=mongodb://mongod_db:27017
+      - DB_NAME=todo
+
+      # Redis settings
+      - REDIS_HOST=redis_db
+      - REDIS_PORT=6379
+      - REDIS_DB=0
+      - REDIS_PASS=
+      - REDIS_EXPIRE_TIME=15
+      
+      # SMTP settings
+      - SMTP_HOST=smtp.ethereal.email
+      - SMTP_PORT=587
+      - SMTP_SERVICE=SMTP
+      - SMTP_EMAIL=mandy.dubuque@ethereal.email
+      - SMTP_PASSWORD=WTEnTReKYPpt146q71

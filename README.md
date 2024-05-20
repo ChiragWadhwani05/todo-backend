@@ -1,8 +1,9 @@
 <div align="center">
-    <img src="./public/todo-logo-circle.png"
+    <img src="https://raw.githubusercontent.com/LakshayManglani/todo-backend/main/public/todo-logo-circle.png"
     width="200">
-    <h1 align="center">Todo Backend</h1>
 </div>
+
+# Todo &middot; [![Github license](https://img.shields.io/badge/license-MIT-blue)](./LICENSE)
 Welcome to Todo Backend! This backend allows you to build APIs.
 
 <!-- ## Live Demo
@@ -15,64 +16,32 @@ Check out the frontend repository for this project on Github: [Todo Frontend](ht
 
 ## Required OS dependencies
 
-- Mysql Database Service
+- MongoDB
+- Redis
 
-## Getting Started
-
-1. Clone this repository to your local machine.
-2. Open the terminal in the repository directory.
-3. Install the packages:
+## Installation
 
 ```bash
-npm install
+$ npm install
 ```
 
-4. Create `.env` file in the root folder and copy paste the content of `.env.sample`, and add necessary credentials.
-5. To start project in development run
+## Running the app
 
 ```bash
-npm run dev
+# development
+$ npm run dev
+
+# production mode
+$ npm run start
 ```
 
-6. To start project in production run
+## How to contribute
 
-```bash
-# To comiple ts
-npm run tsc
-# To run app using nodejs
-npm run start
-```
-
-7. Before commit run
-
-```bash
-# To beautify the code formatting
-npm run lint
-```
-
-## Information for Developer
-
-- The project insures that the server only starts after database is connected and working properly.
-
-- Project uses typescript for es6 and type safety but in `package.json` and `tsconfig.json` files `"type"(package.json)` and `"module"(tsconfig.json)` properties are set to "commonjs" so that project can use some packages that can only be used with `"commonjs"`.
-
-## Technologies Used
-
-- Express for building APIs.
-- CORS to allow multiple origins
-- Dotenv to hide sensitive information.
-- TypeScript for type safety.
-- ts-node-dev for restarting server in development mode.
-- Sequelize as an ORM for working with databases.
-- Git for version control and collaborative development.
-
-## Contributions
-
-Contributions are welcome! If you have any improvements, or bug fixes, feel free to submit a pull request.
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details.
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix: `git checkout -b feat/your-feature-name` or `git checkout -b fix/your-bug-fix-name`.
+3. Make your changes and commit them using conventional commit messages: `git commit -am "feat: Add new feature"`. For more details on the commit format and other guidelines, please refer to the [Contributor Guidelines](./CONTRIBUTING.md).
+4. Push your changes to your forked repository: `git push origin feat/your-feature-name`.
+5. Submit a pull request to the main repository, explaining the changes you've made and providing any necessary details.
 
 ## Contact
 
@@ -83,3 +52,7 @@ For any inquiries or feedback, please reach out to us using the following email 
 
 [@LakshayManglani](https://github.com/LakshayManglani):
 **[lakshaymanglani2212@gmail.com](mailto:lakshaymanglani2212@gmail.com)**
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details.

@@ -1,60 +1,48 @@
 {
-  "name": "todoapi",
-  "version": "2.0.0",
-  "description": "API for todo app.",
-  "main": "./src/api/v2/index.js",
-  "type": "commonjs",
+  "name": "todo-backend",
+  "version": "1.0.0",
+  "description": "This backend system seamlessly integrates APIs for managing to-do tasks and user profiles, enhanced with the convenience of Google SSO.",
+  "main": "./src/server.js",
+  "type": "module",
   "scripts": {
-    "start": "node ./src/api/v2/index.js",
-    "tsc": "npx tsc --watch",
-    "dev": "ts-node-dev --respawn --transpile-only ./src/api/index.ts",
-    "single": "ts-node-dev --respawn --transpile-only",
-    "lint": "npx prettier . --write"
+    "dev": "nodemon ./src/server.js",
+    "start": "node ./src/server.js",
+    "test": "jest --detectOpenHandles"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/LakshayManglani/todo-backend.git"
+    "url": "https://github.com/ChiragWadhwani05/todo-backend.git"
   },
-  "keywords": [
-    "todo",
-    "api",
-    "backend"
-  ],
-  "author": "Lakshay Manglani",
-  "contributors": [
-    "Chirag Wadhwani"
-  ],
-  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/LakshayManglani/todo-backend/issues"
+    "url": "https://github.com/ChiragWadhwani05/todo-backend/issues"
   },
-  "homepage": "https://github.com/LakshayManglani/todo-backend#readme",
+  "homepage": "https://github.com/ChiragWadhwani05/todo-backend#readme",
+  "keywords": [
+    "Chat",
+    "Random-Chat",
+    "Network"
+  ],
+  "author": "Chirag Wadhwani & Lakshay Manglani",
+  "license": "MIT",
   "dependencies": {
     "bcryptjs": "^2.4.3",
-    "cookie-parser": "^1.4.6",
+    "cloudinary": "^2.2.0",
     "cors": "^2.8.5",
-    "dotenv": "^16.3.1",
-    "express": "^4.18.2",
-    "express-session": "^1.17.3",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-rate-limit": "^7.2.0",
     "express-validator": "^7.0.1",
+    "ioredis": "^5.4.1",
     "jsonwebtoken": "^9.0.2",
-    "mysql2": "^3.6.2",
-    "passport": "^0.6.0",
-    "passport-google-oauth20": "^2.0.0",
-    "sequelize": "^6.33.0"
+    "mongoose": "^8.3.3",
+    "multer": "^1.4.5-lts.1",
+    "nodemailer": "^6.9.13",
+    "rate-limit-redis": "^4.2.0",
+    "sharp": "^0.33.4"
   },
   "devDependencies": {
-    "@types/bcryptjs": "^2.4.5",
-    "@types/cookie-parser": "^1.4.5",
-    "@types/cors": "^2.8.14",
-    "@types/express": "^4.17.19",
-    "@types/express-session": "^1.17.10",
-    "@types/jsonwebtoken": "^9.0.4",
-    "@types/node": "^20.8.6",
-    "@types/passport": "^1.0.15",
-    "@types/passport-google-oauth20": "^2.0.14",
-    "prettier": "^3.0.3",
-    "ts-node-dev": "^2.0.0",
-    "typescript": "^5.2.2"
+    "eslint": "^8.57.0",
+    "nodemon": "^3.1.0",
+    "prettier": "^3.2.5"
   }
 }
