@@ -166,4 +166,19 @@ const updateAvatar = asyncHandler(async (req, res) => {
     );
 });
 
-export { registerUser, loginUser, logoutUser, changePassword, updateAvatar };
+const getUser = asyncHandler(async (req, res) => {
+  const { _id } = req.user;
+  const user = await User.findById(_id).select("-password");
+  return res
+    .status(200)
+    .json(new ApiResponse(200, { user }, "User fetched successfully."));
+});
+
+export {
+  registerUser,
+  loginUser,
+  logoutUser,
+  changePassword,
+  updateAvatar,
+  getUser,
+};

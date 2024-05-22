@@ -1,6 +1,7 @@
 import { Router } from "express";
 import {
   changePassword,
+  getUser,
   loginUser,
   logoutUser,
   registerUser,
@@ -25,12 +26,13 @@ function createUsersRouter() {
   router.route("/register").post(registerUserValidator, registerUser);
   router.route("/login").post(loginUserValidator, loginUser);
 
+  router.use(verifyAuthorizationToken);
+
   router
     .route("/change-password")
-    .post(verifyAuthorizationToken, changePasswordValidator, changePassword);
+    .post(changePasswordValidator, changePassword);
 
   router.route("/avatar").post(
-    verifyAuthorizationToken,
     upload.fields([
       {
         name: "avatar",
@@ -41,7 +43,8 @@ function createUsersRouter() {
     updateAvatar
   );
 
-  router.route("/logout").post(verifyAuthorizationToken, logoutUser);
+  router.route("/logout").post(logoutUser);
+  router.route("/").get(getUser);
 
   return router;
 }
